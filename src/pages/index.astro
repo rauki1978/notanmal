@@ -1,0 +1,215 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialProofBand from '../components/SocialProofBand.astro';
+import QueEsNotanmal from '../components/QueEsNotanmal.astro';
+import QuoteGrid from '../components/QuoteGrid.astro';
+import EcosistemaNotanmal from '../components/EcosistemaNotanmal.astro';
+import ManifestoBlock from '../components/ManifestoBlock.astro';
+import CTASection from '../components/CTASection.astro';
+import { getCollection } from 'astro:content';
+
+// Obtener una frase aleatoria
+const frases = await getCollection('frases');
+const randomQuote = frases[Math.floor(Math.random() * frases.length)];
+---
+
+<BaseLayout
+  title="#NoTanMal - Humor inteligente para gente sensata"
+  description="Humor, cultura y supervivencia mental para gente sensata que vive en un mundo bastante absurdo."
+>
+  <!-- HERO — Diseño mejorado con estilo neubrutalist -->
+  <section class="relative bg-white py-12 sm:py-16 lg:py-24 overflow-hidden">
+    <!-- Hashtag decorativo gigante de fondo solo mobile -->
+    <div class="absolute top-20 -right-12 text-[240px] font-black text-brand-yellow/5 leading-none pointer-events-none select-none lg:hidden">#</div>
+
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-20">
+
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="flex-1 flex flex-col justify-center max-w-2xl">
+
+          <!-- Badge decorativo mobile -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-brand-yellow/10 border border-brand-yellow/30 rounded-full mb-4 self-start lg:hidden">
+            <span class="text-lg">🎯</span>
+            <span class="text-xs font-bold text-black uppercase tracking-wider">Humor para sobrevivir</span>
+          </div>
+
+          <!-- Eyebrow -->
+          <p class="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-bold mb-6 hidden lg:block">
+            HUMOR · CULTURA · SUPERVIVENCIA MENTAL
+          </p>
+
+          <!-- Título principal con subrayado MUY visible -->
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black text-black leading-none mb-6 tracking-tighter -space-y-2 sm:-space-y-3">
+            <span class="block">No es el fin del</span>
+            <span class="block">mundo.</span>
+            <span class="inline-block relative">
+              Sólo parece.
+              <!-- Subrayado mucho más grueso y visible en mobile -->
+              <span class="absolute bottom-1 left-0 w-full h-3 sm:h-4 bg-[#facc15] -z-10"></span>
+              <!-- Marca decorativa al final solo mobile -->
+              <span class="inline-block ml-2 text-brand-yellow lg:hidden">✓</span>
+            </span>
+          </h1>
+
+          <!-- Descripción principal -->
+          <p class="text-[17px] text-gray-700 leading-[1.65] mb-4 max-w-lg font-medium">
+            #NoTanMal es una marca de humor, camisetas e ideas para gente sensata que vive en un mundo bastante absurdo, pero todavía tiene ganas de reírse.
+          </p>
+
+          <!-- Texto secundario -->
+          <p class="text-[15px] text-gray-600 leading-[1.6] mb-10 max-w-lg">
+            Sin gurús, sin frases motivacionales pasadas de azúcar, sin postureo. Solo una manera un poco más sana de sobrevivir a otro lunes.
+          </p>
+
+          <!-- Botones con estilo neubrutalist - MÁS COMPACTOS EN MOBILE -->
+          <div class="flex flex-col sm:flex-row gap-3 mb-8">
+            <a href="/tienda" class="group inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-4 bg-[#facc15] text-black font-black text-sm sm:text-[15px] rounded-lg border-2 border-black shadow-[3px_3px_0_rgba(0,0,0,0.8)] sm:shadow-[4px_4px_0_rgba(0,0,0,0.8)] hover:shadow-[4px_4px_0_rgba(0,0,0,0.8)] sm:hover:shadow-[5px_5px_0_rgba(0,0,0,0.8)] hover:translate-x-[-1px] hover:translate-y-[-1px] sm:hover:translate-x-[-2px] sm:hover:translate-y-[-2px] transition-all">
+              <span class="hidden sm:inline">Ponerme una camiseta y fingir que controlo</span>
+              <span class="sm:hidden">Ver camisetas</span>
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="/universo" class="inline-flex items-center justify-center px-5 py-3 sm:px-6 sm:py-4 bg-white border-2 border-black text-black font-bold text-sm sm:text-[15px] rounded-lg shadow-[2px_2px_0_rgba(0,0,0,0.7)] sm:shadow-[3px_3px_0_rgba(0,0,0,0.7)] hover:shadow-[3px_3px_0_rgba(0,0,0,0.7)] sm:hover:shadow-[4px_4px_0_rgba(0,0,0,0.7)] hover:translate-x-[-1px] hover:translate-y-[-1px] sm:hover:translate-x-[-2px] sm:hover:translate-y-[-2px] transition-all">
+              <span class="hidden sm:inline">Entrar sin expectativas altas</span>
+              <span class="sm:hidden">Ver más</span>
+            </a>
+          </div>
+
+          <!-- Footer badges mejorados con más visual en mobile -->
+          <div class="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 text-[13px]">
+            <div class="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-gray-300 rounded-full text-gray-700 font-semibold shadow-[2px_2px_0_rgba(0,0,0,0.08)]">
+              <span class="relative flex h-3 w-3">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+              </span>
+              <span class="text-xs sm:text-sm">Estado: cansados pero funcionales</span>
+            </div>
+            <div class="inline-flex items-center gap-2 px-4 py-2.5 bg-black text-white text-xs sm:text-sm font-bold rounded-full border border-black shadow-[2px_2px_0_rgba(250,204,21,0.8)]">
+              <span class="text-base">🧠</span>
+              <span>Para gente que piensa</span>
+            </div>
+          </div>
+
+          <!-- Sticker decorativo solo mobile -->
+          <div class="lg:hidden mt-8 inline-block">
+            <div class="relative inline-block px-5 py-3 bg-brand-yellow border-2 border-black rounded-lg shadow-[3px_3px_0_rgba(0,0,0,0.7)] transform -rotate-2">
+              <p class="text-xs font-bold text-black uppercase tracking-wide text-center">
+                ⚡ Sin gurús<br/>desde 2024
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- COLUMNA DERECHA -->
+        <div class="flex-1 space-y-6 max-w-xl">
+
+          <!-- Card 1: Mockup Mental con estilo mejorado - OCULTA EN MOBILE -->
+          <div class="hidden lg:block relative rounded-2xl border-2 border-gray-900 bg-white p-10 shadow-[4px_4px_0_rgba(0,0,0,0.7)]">
+
+            <!-- Badge superior centrado -->
+            <div class="flex justify-center mb-6">
+              <div class="inline-block px-5 py-2 bg-black text-white text-[10px] font-semibold tracking-wider rounded-full uppercase shadow-[2px_2px_0_rgba(250,204,21,0.7)]">
+                Edición limitada de la realidad
+              </div>
+            </div>
+
+            <!-- Badge amarillo esquina superior derecha inclinado -->
+            <div class="absolute -top-3 -right-3 px-4 py-2 bg-[#facc15] text-black text-[10px] font-bold rounded-full border-2 border-black transform rotate-6 shadow-[2px_2px_0_rgba(0,0,0,0.7)] uppercase tracking-wide">
+              No tan mal ✓
+            </div>
+
+            <!-- Label -->
+            <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold mb-4 text-center">
+              Mockup mental
+            </p>
+
+            <!-- Área mockup con borde punteado -->
+            <div class="border-2 border-dashed border-gray-300 rounded-xl p-10 mb-6 flex items-center justify-center min-h-[220px] bg-[#fffef7]">
+              <p class="text-center text-[19px] font-bold text-gray-900 leading-[1.4] max-w-[260px]">
+                "Sobrevivir no está tan mal, considerando el panorama."
+              </p>
+            </div>
+
+            <!-- Texto inferior -->
+            <p class="text-[14px] text-gray-600 leading-[1.6] text-center">
+              Imagínate esto en camiseta. <span class="text-black font-bold">Ahora ya lo quieres un poco.</span>
+            </p>
+          </div>
+
+          <!-- Card 2: Frase del día mejorada - MÁS COMPACTA EN MOBILE -->
+          <div class="rounded-2xl border-2 border-gray-900 bg-gradient-to-br from-gray-50 to-brand-yellow/10 p-6 lg:p-10 shadow-[3px_3px_0_rgba(0,0,0,0.6)] lg:shadow-[4px_4px_0_rgba(0,0,0,0.6)]">
+
+            <!-- Título con más visual -->
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold flex items-center gap-2">
+                <span class="text-xl">💭</span>
+                <span class="hidden sm:inline">Frase del día (o del desastre)</span>
+                <span class="sm:hidden">Frase del día</span>
+              </h3>
+              <div class="w-2 h-2 bg-brand-yellow rounded-full animate-pulse"></div>
+            </div>
+
+            <!-- Frase principal en cursiva con Space Grotesk -->
+            <p class="text-lg sm:text-[20px] italic text-gray-900 leading-[1.4] mb-4 font-heading">
+              "La vida no va tan mal. Solo necesitas dormir más, decir que no más veces y mirar menos el móvil."
+            </p>
+
+            <!-- Texto inferior -->
+            <p class="text-[11px] sm:text-[12px] text-gray-500 font-bold flex items-center gap-2">
+              <span class="text-sm">✨</span>
+              Si esta frase te representa, ya eres de los nuestros.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Banda de social proof con badges -->
+  <SocialProofBand />
+
+  <!-- ¿Qué es #NoTanMal? -->
+  <QueEsNotanmal />
+
+  <!-- Separador decorativo -->
+  <div class="py-8 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center gap-4">
+      <div class="flex-1 h-1 bg-gradient-to-r from-transparent via-brand-yellow to-transparent"></div>
+      <div class="text-4xl font-black text-brand-yellow">#</div>
+      <div class="flex-1 h-1 bg-gradient-to-r from-transparent via-brand-yellow to-transparent"></div>
+    </div>
+  </div>
+
+  <!-- Frase del día -->
+  <section class="bg-white py-20 lg:py-32">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <QuoteGrid quote={randomQuote.data.text} showLink={true} />
+    </div>
+  </section>
+
+  <!-- El ecosistema #NoTanMal -->
+  <EcosistemaNotanmal />
+
+  <!-- Mini manifiesto -->
+  <section class="bg-background py-20 lg:py-32">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ManifestoBlock />
+    </div>
+  </section>
+
+  <!-- CTA Newsletter final -->
+  <section class="bg-white py-20 lg:py-32">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <CTASection
+        title="Únete a la resistencia sensata"
+        subtitle="Newsletter quincenal con humor, reflexiones y cero spam. Solo para gente que prefiere la realidad al postureo."
+        buttonText="Suscribirme"
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Colores de marca #NoTanMal */
+  --color-brand-yellow: #facc15;
+  --color-brand-purple: #a855f7;
+  --color-background: #f9fafb;
+  --color-text: #111827;
+  --color-text-muted: #6b7280;
+
+  /* Spacing personalizado */
+  --spacing-section: 4rem;
+
+  /* Fuentes */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Estilos base */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* Tipografía editorial para títulos */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Estilos para transiciones suaves */
+a, button {
+  transition: all 0.2s ease;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mejoras de accesibilidad */
+*:focus-visible {
+  outline: 2px solid var(--color-brand-yellow);
+  outline-offset: 2px;
+}

@@ -1,0 +1,145 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Generar rutas estáticas para todos los posts
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Formatear fecha
+const formattedDate = new Date(post.data.date).toLocaleDateString('es-ES', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<BaseLayout
+  title={`${post.data.title} - #NoTanMal`}
+  description={post.data.excerpt}
+>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+    <!-- Header del post -->
+    <header class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="text-sm font-semibold text-brand-yellow bg-brand-yellow/10 px-3 py-1 rounded-full">
+          {post.data.category}
+        </span>
+        <time class="text-sm text-text-muted">{formattedDate}</time>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-main mb-6 leading-tight">
+        {post.data.title}
+      </h1>
+
+      {post.data.excerpt && (
+        <p class="text-xl sm:text-2xl text-text-muted leading-relaxed">
+          {post.data.excerpt}
+        </p>
+      )}
+
+      {post.data.author && (
+        <div class="mt-6 flex items-center gap-3">
+          <div class="w-12 h-12 bg-brand-yellow rounded-full flex items-center justify-center">
+            <span class="text-xl font-bold text-text-main">#</span>
+          </div>
+          <div>
+            <p class="font-medium text-text-main">{post.data.author}</p>
+            <p class="text-sm text-text-muted">Equipo #NoTanMal</p>
+          </div>
+        </div>
+      )}
+    </header>
+
+    <!-- Contenido del post -->
+    <div class="prose prose-lg max-w-none
+      prose-headings:font-bold prose-headings:text-text-main
+      prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
+      prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+      prose-p:text-text-muted prose-p:leading-relaxed prose-p:mb-6
+      prose-a:text-brand-yellow prose-a:no-underline hover:prose-a:underline
+      prose-strong:text-text-main prose-strong:font-semibold
+      prose-ul:my-6 prose-ul:space-y-2
+      prose-li:text-text-muted
+      prose-blockquote:border-l-4 prose-blockquote:border-brand-yellow
+      prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-text-muted
+      prose-code:text-brand-yellow prose-code:bg-purple-50 prose-code:px-1 prose-code:rounded
+    ">
+      <Content />
+    </div>
+
+    <!-- Footer del post -->
+    <footer class="mt-16 pt-8 border-t border-gray-200">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <a
+          href="/posts"
+          class="inline-flex items-center text-text-muted hover:text-brand-yellow transition-colors font-medium"
+        >
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Volver a todos los posts
+        </a>
+
+        <div class="flex items-center gap-4">
+          <span class="text-sm text-text-muted">Compartir:</span>
+          <a
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(Astro.url.href)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-text-muted hover:text-brand-yellow transition-colors"
+            aria-label="Compartir en Twitter"
+          >
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+            </svg>
+          </a>
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(Astro.url.href)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-text-muted hover:text-brand-yellow transition-colors"
+            aria-label="Compartir en Facebook"
+          >
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- CTA relacionado -->
+    <div class="mt-16 bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/20 rounded-2xl p-8 lg:p-12 text-center">
+      <h2 class="text-2xl font-bold text-text-main mb-4">
+        ¿Te ha gustado este artículo?
+      </h2>
+      <p class="text-text-muted mb-6">
+        Únete a nuestra newsletter para recibir más contenido como este.
+        Sin spam, sin relleno. Solo lo bueno.
+      </p>
+      <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+        <input
+          type="email"
+          placeholder="tu@email.com"
+          required
+          class="flex-1 px-4 py-3 rounded-lg bg-white text-text-main placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-brand-yellow"
+        />
+        <button
+          type="submit"
+          class="px-6 py-3 bg-text-main text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors"
+        >
+          Suscribirme
+        </button>
+      </form>
+    </div>
+  </article>
+</BaseLayout>

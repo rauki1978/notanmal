@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="404 - Página no encontrada"
+  description="Esta página no existe. Pero no estás perdido, solo explorando."
+>
+  <div class="min-h-[70vh] flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto text-center">
+      <!-- Número 404 grande -->
+      <div class="mb-8">
+        <h1 class="text-9xl font-bold text-brand-yellow opacity-20">404</h1>
+      </div>
+
+      <!-- Mensaje principal -->
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-main mb-6">
+        Esta página no existe
+      </h2>
+
+      <p class="text-xl sm:text-2xl text-text-muted mb-8 leading-relaxed">
+        Pero tranquilo, no estás perdido. Solo has tomado un camino que no lleva a ningún lado.
+        <br />
+        <span class="text-brand-yellow font-medium">No tan mal, ¿no?</span>
+      </p>
+
+      <!-- Frases con humor -->
+      <div class="bg-gradient-to-br from-brand-yellow/10 to-brand-yellow/10 rounded-2xl p-8 mb-8">
+        <p class="text-lg text-text-muted italic">
+          "No todos los que deambulan están perdidos... pero en este caso, sí. Esta página
+          definitivamente no existe."
+        </p>
+      </div>
+
+      <!-- Botones de acción -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/"
+          class="px-8 py-4 bg-brand-yellow text-text-main font-semibold rounded-xl hover:bg-yellow-400 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+        >
+          Volver al inicio
+        </a>
+        <a
+          href="/posts"
+          class="px-8 py-4 bg-white text-text-main font-semibold rounded-xl border-2 border-gray-200 hover:border-brand-yellow transition-all"
+        >
+          Leer algo interesante
+        </a>
+      </div>
+
+      <!-- Links útiles -->
+      <div class="mt-12 pt-8 border-t border-gray-200">
+        <p class="text-sm text-text-muted mb-4">O tal vez estabas buscando:</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/universo" class="text-brand-yellow hover:text-yellow-600 transition-colors">
+            Universo
+          </a>
+          <span class="text-text-muted">•</span>
+          <a href="/libro" class="text-brand-yellow hover:text-yellow-600 transition-colors">
+            El Libro
+          </a>
+          <span class="text-text-muted">•</span>
+          <a href="/tienda" class="text-brand-yellow hover:text-yellow-600 transition-colors">
+            Tienda
+          </a>
+          <span class="text-text-muted">•</span>
+          <a href="/contacto" class="text-brand-yellow hover:text-yellow-600 transition-colors">
+            Contacto
+          </a>
+        </div>
+      </div>
+
+      <!-- Mensaje final con humor -->
+      <div class="mt-12">
+        <p class="text-sm text-text-muted">
+          Si crees que esta página debería existir,
+          <a href="/contacto" class="text-brand-yellow hover:underline">avísanos</a>.
+          O no. Tú decides.
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

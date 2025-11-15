@@ -1,0 +1,82 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+// Obtener todos los posts ordenados por fecha
+const posts = (await getCollection('posts')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<PageLayout
+  title="Posts"
+  subtitle="Reflexiones, humor y perspectivas sensatas sobre vivir en un mundo absurdo."
+  description="Lee artículos sobre cultura, trabajo, bienestar y supervivencia mental para gente sensata."
+>
+  <!-- Categorías/Filtros (opcional para futuro) -->
+  <section class="mb-12">
+    <div class="flex flex-wrap gap-3 justify-center">
+      <button class="px-4 py-2 bg-brand-yellow text-text-main font-medium rounded-lg hover:bg-yellow-400 transition-colors">
+        Todos
+      </button>
+      <button class="px-4 py-2 bg-white text-text-muted font-medium rounded-lg border border-gray-200 hover:border-brand-yellow transition-colors">
+        Cultura
+      </button>
+      <button class="px-4 py-2 bg-white text-text-muted font-medium rounded-lg border border-gray-200 hover:border-brand-yellow transition-colors">
+        Reflexión
+      </button>
+      <button class="px-4 py-2 bg-white text-text-muted font-medium rounded-lg border border-gray-200 hover:border-brand-yellow transition-colors">
+        Trabajo
+      </button>
+    </div>
+  </section>
+
+  <!-- Grid de posts -->
+  <section class="mb-16">
+    {posts.length > 0 ? (
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.map((post) => (
+          <PostCard
+            title={post.data.title}
+            excerpt={post.data.excerpt}
+            category={post.data.category}
+            date={post.data.date}
+            slug={post.slug}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-12 bg-white rounded-xl border border-gray-200">
+        <p class="text-text-muted text-lg">
+          Estamos escribiendo. Vuelve pronto o suscríbete para recibir avisos.
+        </p>
+      </div>
+    )}
+  </section>
+
+  <!-- CTA Newsletter -->
+  <section class="bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/20 rounded-2xl p-8 lg:p-12 text-center">
+    <h2 class="text-3xl font-bold text-text-main mb-4">
+      Recibe los nuevos artículos en tu email
+    </h2>
+    <p class="text-lg text-text-muted mb-6 max-w-2xl mx-auto">
+      Newsletter quincenal con los últimos posts, reflexiones y cero relleno.
+      Solo contenido que vale la pena leer.
+    </p>
+    <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+      <input
+        type="email"
+        placeholder="tu@email.com"
+        required
+        class="flex-1 px-4 py-3 rounded-lg bg-white text-text-main placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-brand-yellow"
+      />
+      <button
+        type="submit"
+        class="px-6 py-3 bg-text-main text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors"
+      >
+        Suscribirme
+      </button>
+    </form>
+  </section>
+</PageLayout>

@@ -1,0 +1,197 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { getCollection } from 'astro:content';
+
+// Obtener todos los productos
+const productos = await getCollection('productos');
+---
+
+<PageLayout
+  title="La Tienda"
+  subtitle="Productos honestos con mensajes que dicen lo que piensas pero no te atreves a gritar."
+  description="Camisetas, tazas, láminas y más. Humor inteligente que puedes llevar contigo."
+>
+  <!-- Introducción -->
+  <section class="mb-16">
+    <div class="bg-gradient-to-br from-brand-yellow/10 to-gray-50 rounded-2xl p-8 lg:p-12 text-center">
+      <p class="text-lg sm:text-xl text-text-muted max-w-3xl mx-auto">
+        Cada producto es una declaración de principios. No vendemos merchandising genérico.
+        Vendemos perspectiva, humor y recordatorios de que no estás solo en esto.
+      </p>
+    </div>
+  </section>
+
+  <!-- Categorías -->
+  <section class="mb-16">
+    <h2 class="text-3xl font-bold text-text-main mb-8">Categorías</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Camisetas -->
+      <article class="bg-white rounded-xl p-6 border border-gray-200 hover:border-brand-yellow transition-all group">
+        <div class="text-4xl mb-4">👕</div>
+        <h3 class="text-2xl font-bold text-text-main mb-3 group-hover:text-brand-yellow transition-colors">
+          Camisetas
+        </h3>
+        <p class="text-text-muted mb-4">
+          Algodón orgánico, corte unisex. Mensajes que dicen lo que piensas
+          pero no te atreves a llevar escrito... o sí.
+        </p>
+        <span class="text-sm font-medium text-brand-yellow">Ver camisetas →</span>
+      </article>
+
+      <!-- Sudaderas -->
+      <article class="bg-white rounded-xl p-6 border border-gray-200 hover:border-brand-yellow transition-all group">
+        <div class="text-4xl mb-4">🧥</div>
+        <h3 class="text-2xl font-bold text-text-main mb-3 group-hover:text-brand-yellow transition-colors">
+          Sudaderas
+        </h3>
+        <p class="text-text-muted mb-4">
+          Para días fríos o cuando necesitas más capas entre tú y el mundo.
+          Comodidad y perspectiva en una prenda.
+        </p>
+        <span class="text-sm font-medium text-brand-yellow">Próximamente</span>
+      </article>
+
+      <!-- Láminas -->
+      <article class="bg-white rounded-xl p-6 border border-gray-200 hover:border-brand-yellow transition-all group">
+        <div class="text-4xl mb-4">🖼️</div>
+        <h3 class="text-2xl font-bold text-text-main mb-3 group-hover:text-brand-yellow transition-colors">
+          Láminas
+        </h3>
+        <p class="text-text-muted mb-4">
+          Impresiones de alta calidad para decorar tu espacio con mensajes
+          que te recuerden mantener la perspectiva.
+        </p>
+        <span class="text-sm font-medium text-brand-yellow">Ver láminas →</span>
+      </article>
+
+      <!-- Tazas -->
+      <article class="bg-white rounded-xl p-6 border border-gray-200 hover:border-brand-yellow transition-all group">
+        <div class="text-4xl mb-4">☕</div>
+        <h3 class="text-2xl font-bold text-text-main mb-3 group-hover:text-brand-yellow transition-colors">
+          Tazas
+        </h3>
+        <p class="text-text-muted mb-4">
+          Para el café que necesitas mientras procesas la realidad.
+          Cerámica de calidad, mensajes de supervivencia.
+        </p>
+        <span class="text-sm font-medium text-brand-yellow">Ver tazas →</span>
+      </article>
+
+      <!-- Libretas -->
+      <article class="bg-white rounded-xl p-6 border border-gray-200 hover:border-brand-yellow transition-all group">
+        <div class="text-4xl mb-4">📓</div>
+        <h3 class="text-2xl font-bold text-text-main mb-3 group-hover:text-brand-yellow transition-colors">
+          Libretas
+        </h3>
+        <p class="text-text-muted mb-4">
+          Para escribir tus pensamientos, frustraciones o listas de cosas
+          que nunca harás. Sin juzgar.
+        </p>
+        <span class="text-sm font-medium text-brand-yellow">Próximamente</span>
+      </article>
+
+      <!-- Packs regalo -->
+      <article class="bg-white rounded-xl p-6 border border-gray-200 hover:border-brand-yellow transition-all group">
+        <div class="text-4xl mb-4">🎁</div>
+        <h3 class="text-2xl font-bold text-text-main mb-3 group-hover:text-brand-yellow transition-colors">
+          Packs regalo
+        </h3>
+        <p class="text-text-muted mb-4">
+          Combinaciones pensadas para regalar a esa persona que también
+          piensa que el mundo se ha vuelto loco.
+        </p>
+        <span class="text-sm font-medium text-brand-yellow">Próximamente</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- Productos destacados -->
+  <section class="mb-16">
+    <h2 class="text-3xl font-bold text-text-main mb-8">Productos disponibles</h2>
+
+    {productos.length > 0 ? (
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {productos.map((producto) => (
+          <ProductCard
+            name={producto.data.name}
+            description={producto.data.description}
+            price={producto.data.price}
+            category={producto.data.category}
+            available={producto.data.available}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-12 bg-white rounded-xl border border-gray-200">
+        <p class="text-text-muted text-lg">
+          Estamos preparando los productos. Vuelve pronto o suscríbete para ser el primero en saber.
+        </p>
+      </div>
+    )}
+  </section>
+
+  <!-- Información de envíos y calidad -->
+  <section class="grid md:grid-cols-3 gap-8 mb-16">
+    <div class="bg-white rounded-xl p-6 border border-gray-200 text-center">
+      <div class="w-16 h-16 mx-auto bg-brand-yellow/10 rounded-full flex items-center justify-center mb-4">
+        <svg class="w-8 h-8 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <h3 class="font-bold text-text-main mb-2">Calidad garantizada</h3>
+      <p class="text-text-muted text-sm">
+        Materiales de calidad. Si no te gusta, lo cambiamos sin preguntas.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-xl p-6 border border-gray-200 text-center">
+      <div class="w-16 h-16 mx-auto bg-brand-yellow/10 rounded-full flex items-center justify-center mb-4">
+        <svg class="w-8 h-8 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+        </svg>
+      </div>
+      <h3 class="font-bold text-text-main mb-2">Envío rápido</h3>
+      <p class="text-text-muted text-sm">
+        Procesamos y enviamos en 24-48h. Gratis en pedidos superiores a 50€.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-xl p-6 border border-gray-200 text-center">
+      <div class="w-16 h-16 mx-auto bg-brand-yellow/10 rounded-full flex items-center justify-center mb-4">
+        <svg class="w-8 h-8 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
+        </svg>
+      </div>
+      <h3 class="font-bold text-text-main mb-2">Producción responsable</h3>
+      <p class="text-text-muted text-sm">
+        Producción local, materiales sostenibles. Menos huella, más cordura.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA Newsletter -->
+  <section class="bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/20 rounded-2xl p-8 lg:p-12 text-center">
+    <h2 class="text-3xl font-bold text-text-main mb-4">
+      Sé el primero en ver los nuevos productos
+    </h2>
+    <p class="text-lg text-text-muted mb-6 max-w-2xl mx-auto">
+      Lanzamientos exclusivos, descuentos para suscriptores y cero spam.
+      Solo te escribimos cuando haya algo que valga la pena.
+    </p>
+    <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+      <input
+        type="email"
+        placeholder="tu@email.com"
+        required
+        class="flex-1 px-4 py-3 rounded-lg bg-white text-text-main placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-brand-yellow"
+      />
+      <button
+        type="submit"
+        class="px-6 py-3 bg-text-main text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors"
+      >
+        Suscribirme
+      </button>
+    </form>
+  </section>
+</PageLayout>
