@@ -1,0 +1,197 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import CTASection from '../components/CTASection.astro';
+---
+
+<PageLayout
+  title="El Libro"
+  subtitle="Un manual de supervivencia mental para gente que vive en un mundo que no pidió."
+  description="El libro #NoTanMal: humor, perspectiva y supervivencia para gente sensata."
+>
+  <!-- Descripción del libro -->
+  <section class="mb-16">
+    <h2 class="text-3xl font-bold text-text-main mb-6">Sobre el libro</h2>
+    <div class="space-y-4 text-lg text-text-muted">
+      <p>
+        <strong class="text-text-main">No es un libro de autoayuda.</strong> Es un manual
+        de supervivencia mental para gente que está cansada de que le digan que todo es
+        posible si lo deseas lo suficiente.
+      </p>
+      <p>
+        No encontrarás fórmulas mágicas ni planes de 30 días para transformar tu vida.
+        Lo que encontrarás es:
+      </p>
+      <ul class="space-y-2 ml-6">
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-brand-yellow mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span><strong class="text-text-main">Perspectiva honesta</strong> sobre la vida moderna y sus absurdos</span>
+        </li>
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-brand-yellow mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span><strong class="text-text-main">Humor inteligente</strong> para reírte de lo que no puedes controlar</span>
+        </li>
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-brand-yellow mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span><strong class="text-text-main">Reflexiones sensatas</strong> sobre trabajo, relaciones y salud mental</span>
+        </li>
+        <li class="flex items-start">
+          <svg class="w-6 h-6 text-brand-yellow mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span><strong class="text-text-main">Estrategias reales</strong> para sobrevivir sin perder la cordura</span>
+        </li>
+      </ul>
+      <p class="pt-4">
+        Es el libro que necesitas cuando estás harto de libros que te dicen que el problema
+        eres tú y no el mundo absurdo en el que vives.
+      </p>
+    </div>
+  </section>
+
+  <!-- Índice orientativo -->
+  <section class="mb-16 bg-gradient-to-br from-brand-yellow/10 to-brand-yellow/10 rounded-2xl p-8 lg:p-12">
+    <h2 class="text-3xl font-bold text-text-main mb-8">Índice orientativo</h2>
+    <div class="space-y-4">
+      <div class="bg-white rounded-lg p-4 hover:shadow-md transition-shadow">
+        <h3 class="font-bold text-text-main mb-2">1. Bienvenido al desastre</h3>
+        <p class="text-text-muted text-sm">
+          Por qué el mundo parece más loco que nunca (spoiler: no eres tú)
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg p-4 hover:shadow-md transition-shadow">
+        <h3 class="font-bold text-text-main mb-2">2. La tiranía de la productividad</h3>
+        <p class="text-text-muted text-sm">
+          Cómo dejamos que nos convenzan de que descansar es fracasar
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg p-4 hover:shadow-md transition-shadow">
+        <h3 class="font-bold text-text-main mb-2">3. Gurús, coaches y vendedores de humo</h3>
+        <p class="text-text-muted text-sm">
+          Una guía para detectar (y evitar) a quienes venden soluciones mágicas
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg p-4 hover:shadow-md transition-shadow">
+        <h3 class="font-bold text-text-main mb-2">4. El mito del equilibrio</h3>
+        <p class="text-text-muted text-sm">
+          Por qué el trabajo-vida balance es mentira y qué hacer al respecto
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg p-4 hover:shadow-md transition-shadow">
+        <h3 class="font-bold text-text-main mb-2">5. Redes sociales y la comparación constante</h3>
+        <p class="text-text-muted text-sm">
+          Sobrevivir en un mundo donde todos venden su mejor versión (falsa)
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg p-4 hover:shadow-md transition-shadow">
+        <h3 class="font-bold text-text-main mb-2">6. El arte de decir que no</h3>
+        <p class="text-text-muted text-sm">
+          Por qué establecer límites no te hace mala persona
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg p-4 hover:shadow-md transition-shadow">
+        <h3 class="font-bold text-text-main mb-2">7. Salud mental no es autoayuda</h3>
+        <p class="text-text-muted text-sm">
+          La diferencia entre cuidarte y caer en el bienestar tóxico
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg p-4 hover:shadow-md transition-shadow">
+        <h3 class="font-bold text-text-main mb-2">8. Sobrevivir es suficiente</h3>
+        <p class="text-text-muted text-sm">
+          Por qué está bien no estar optimizando cada segundo de tu vida
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fragmento destacado -->
+  <section class="mb-16">
+    <h2 class="text-3xl font-bold text-text-main mb-6">Un fragmento del libro</h2>
+    <blockquote class="bg-white rounded-xl p-8 lg:p-12 border-l-4 border-brand-yellow shadow-sm">
+      <p class="text-xl sm:text-2xl text-text-main font-medium mb-6 leading-relaxed">
+        "Nos han vendido la idea de que siempre deberíamos estar creciendo, mejorando,
+        optimizando. Que si no estamos avanzando, estamos retrocediendo. Que el descanso
+        es para los débiles y la estabilidad es aburrida.
+      </p>
+      <p class="text-xl sm:text-2xl text-text-main font-medium mb-6 leading-relaxed">
+        Pero aquí está la verdad incómoda: a veces, sobrevivir ya es suficiente.
+        A veces, mantener tu cordura en un mundo que parece diseñado para robártela
+        es el verdadero logro.
+      </p>
+      <p class="text-xl sm:text-2xl text-text-main font-medium leading-relaxed">
+        Y si alguien te dice que eso no es suficiente, probablemente está intentando
+        venderte algo."
+      </p>
+      <footer class="mt-8 text-text-muted italic">
+        — Capítulo 8: "Sobrevivir es suficiente"
+      </footer>
+    </blockquote>
+  </section>
+
+  <!-- CTA: Quiero el libro cuando salga -->
+  <section class="mb-16">
+    <div class="bg-gradient-to-br from-brand-yellow to-yellow-400 rounded-2xl p-8 lg:p-12 text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-text-main mb-4">
+          Sé el primero en saberlo
+        </h2>
+        <p class="text-lg text-text-main mb-8 opacity-90">
+          El libro está en proceso. Déjanos tu email y te avisamos cuando esté listo.
+          Sin spam, sin presión. Solo un aviso cuando haya algo real que contarte.
+        </p>
+        <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+          <input
+            type="email"
+            placeholder="tu@email.com"
+            required
+            class="flex-1 px-4 py-3 rounded-lg bg-white text-text-main placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-brand-yellow"
+          />
+          <button
+            type="submit"
+            class="px-6 py-3 bg-text-main text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors"
+          >
+            Quiero el libro
+          </button>
+        </form>
+        <p class="text-sm mt-4 text-text-main opacity-75">
+          Prometemos no spamearte. Solo te escribimos cuando el libro esté listo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Información adicional -->
+  <section class="bg-white rounded-xl p-8 border border-gray-200">
+    <h3 class="text-2xl font-bold text-text-main mb-4">Detalles técnicos (para los curiosos)</h3>
+    <div class="grid md:grid-cols-2 gap-6 text-text-muted">
+      <div>
+        <p class="font-semibold text-text-main mb-2">Formato</p>
+        <p>Tapa blanda y digital (ebook)</p>
+      </div>
+      <div>
+        <p class="font-semibold text-text-main mb-2">Páginas aproximadas</p>
+        <p>200-250 páginas</p>
+      </div>
+      <div>
+        <p class="font-semibold text-text-main mb-2">Tono</p>
+        <p>Irónico pero no cínico, honesto pero no deprimente</p>
+      </div>
+      <div>
+        <p class="font-semibold text-text-main mb-2">Lanzamiento estimado</p>
+        <p>Segundo semestre 2025</p>
+      </div>
+    </div>
+  </section>
+</PageLayout>

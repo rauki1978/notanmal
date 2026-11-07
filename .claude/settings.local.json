@@ -10,7 +10,14 @@
       "Bash(npm run build:*)",
       "Bash(npm run dev:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nInitial commit: #NoTanMal - Sitio web completo con estilo neubrutalist refinado\n\n- Landing page con hero optimizado y diseño mobile-first\n- Sistema de contenido con Astro Content Collections\n- Estilo neubrutalist elegante: bordes sutiles, sombras refinadas\n- Paleta de colores: amarillo (#facc15), negro y blanco\n- Componentes reutilizables y páginas completas\n- Responsive design optimizado para mobile y desktop\n- Build estático con Astro 5 + Tailwind CSS 4\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git config:*)",
+      "Bash(gh repo create:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
